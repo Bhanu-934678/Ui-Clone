@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index</title>
+        </head>
+        <body>
+            <script>
+              /*  var isfeepaid = true;
+                if (isfeepaid) {
+                    console.log("allow to enter the class");
+                } else {
+                    console.log("ask for the payment");
+                } */
+               
+              /*  var Job = new Promise((resolve, reject) => {
+                    if (isfeepaid) {
+                        resolve("allow to enter the exam");
+                    } else {
+                        reject("don't allow to exam just put it as absent");
+                    }
+                });
+           
+                   
+                
+                    Job.then((money) => {
+                        console.log(money);
+                    }) .catch((error) => {
+                        console.log(error);
+
+                    }); */
+                    
+                    const myPromise = new Promise((resolve, reject) => {
+                    
+                    if ( feepaid ) {
+                        resolve("Operation successful");
+                    } else {
+                        reject("Operation failed");
+                    }
+                });
+
+                var feepaid = false;
+                myPromise.then((result) => {
+                    console.log(result); // Output: Operation successful
+                }).catch((error) => {
+                    console.error(error); // Output: Operation failed
+                });
+                            
+            </script>
+        </body>
+</html>

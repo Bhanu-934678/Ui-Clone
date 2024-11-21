@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Assigner</title>
+<style>
+    #taskInput {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <h2>Task Assigner</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="resetTasks()">Reset</button>
+    <hr>
+    <h3>Task Queue</h3>
+    <ul id="taskQueue"></ul>
+    <hr>
+    <h3>Completed Tasks</h3>
+    <ul id="completedTasks"></ul>
+
+    <script>
+        const taskQueue = [];
+        const completedTasks = [];
+
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const task = taskInput.value.trim();
+            if (task !== '') {
+                taskQueue.push(task);
+                displayTasks();
+                taskInput.value = '';
+            }
+        }
+
+        function resetTasks() {
+            taskQueue.length = 0;
+            completedTasks.length = 0;
+            displayTasks();
+            displayCompletedTasks();
+        }
+
+        function deleteTask(index, type) {
+            if (type === 'line') {
+                taskQueue.splice(index, 1);
+                displayTasks();
+            } else if (type === 'completed') {
+                completedTasks.splice(index, 1);
+                displayCompletedTasks();
+            }
+        }
+
+        function displayTasks() {
+            const taskQueueElement = document.getElementById('taskQueue');
+            taskQueueElement.innerHTML = '';
+            taskQueue.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.textContent = task;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = function() {
+                    deleteTask(index, 'queue');
+                };
+                li.appendChild(deleteButton);
+                taskQueueElement.appendChild(li);
+            });
+        }
+
+        function pollTasks() {
+            if (taskQueue.length > 0) {
+                const task = taskQueue.shift();
+                completedTasks.push(task);
+                displayCompletedTasks();
+                displayTasks();
+            }
+            setTimeout(pollTasks, 5000); // Poll every 5 seconds
+        }
+
+        function displayCompletedTasks() {
+            const completedTasksElement = document.getElementById('completedTasks');
+            completedTasksElement.innerHTML = '';
+            completedTasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.textContent = task;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = function() {
+                    deleteTask(index, 'completed');
+                };
+                li.appendChild(deleteButton);
+                completedTasksElement.appendChild(li);
+            });
+        }
+
+        pollTasks(); // Start polling tasks
+
+    </script>
+</body>
+</html>

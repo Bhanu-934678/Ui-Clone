@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // palindrome of an array =========>>>>>>>>>>.
+
+        console.log("palindrome numbers from an array");
+
+
+        var data = [];
+        var datasize = prompt("enter size");
+        for(var i = 0; i < datasize; i++){
+            data[i] = prompt('enetr values');
+        }
+       
+        for(var i = 0; i < datasize; i++){
+            var rem;
+            var rev = 0;
+            var num = data[i];
+            while( num > 0){
+                rem = num % 10;
+                rev = (rev * 10) + rem;
+                num = num / 10;
+                num = parseInt(num);
+            }
+            if(rev == data[i]){
+                console.log(data[i]);
+            }
+        } 
+
+        // reverse of an array =======>>>>>>>>>>.
+
+        console.log("reverse of all numbers in an array ")
+        var data =[];
+        var datasize = prompt("enter the size");
+        for(var i = 0; i < datasize; i++){
+            data[i] = prompt("enter values");
+        }
+
+        for(var i = 0; i < datasize; i++){
+            var rem;
+            var rev = 0;
+            var num = data[i];
+            while( num > 0){
+                rem = num % 10;
+                rev = (rev * 10) + rem;
+                num = num / 10;
+                num = parseInt(num);
+            }
+            console.log(rev);
+        }
+
+        // lucky number=======>>>>>>>>>>>
+
+        var num = prompt("enter a value");
+        var sum = 0;
+        for (var i = 0; num > 0 ; i++){
+            var rem = num % 10 ;
+            num = num / 10;
+            num = parseInt(num);
+            sum = sum + num;
+        }
+        console.log(sum);
+    </script>
+</body>
+</html>

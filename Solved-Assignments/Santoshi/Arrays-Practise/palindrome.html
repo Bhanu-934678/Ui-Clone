@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /*var data = prompt("enter a value");
+        var rem;
+        var rev = 0; // missed
+        var original = data;
+        while(data > 0){
+            rem = data % 10; // missed data
+            rev = (rev * 10) + rem;
+            data = data / 10;
+            data = parseInt(data);
+           
+        }
+        if(original == rev){
+            console.log("palindrome");
+        }
+        else{
+            console.log("not paliindrome")
+        } */
+
+       /* for( var i = 0 ; i < 1000; i++){
+            var num = i; 
+            var rem;
+            var rev = 0;
+            while(num > 0){
+                rem = num % 10;
+                rev = (rev * 10) + rem;
+                num = num / 10;
+                num = parseInt(num);
+            }
+            if(rev == i){ // missed ==
+                console.log(i);
+            }
+        } */
+
+        // lucky number finding====>>>>>>>>>>
+       /* var num = prompt("enter the number");
+        var sum = 0;
+        while(num > 0){
+            var rem = num % 10;
+            sum = sum + rem;
+            num = num / 10;
+            num = parseInt(num);
+            if(num == 0 && sum > 9){
+                num = sum;
+                sum = 0;
+            }
+        }
+        console.log(sum); */
+
+        // lucky number of an array===>>>>>>>>>
+
+        /*var data = [];
+        var datasize = prompt("enter size");
+        for( var i = 0; i < datasize; i++){
+            data[i] = prompt("enter values");
+        }
+
+        for(var i = 0 ; i < datasize ; i++){
+            var num = data[i];
+            var sum = 0;
+        while( num > 0){
+            var rem = num % 10;
+            sum = sum + rem;
+            num = num / 10;
+            num = parseInt(num);
+            
+            if(num == 0 && sum > 9){
+                num = sum;
+                sum = 0;
+            }
+            
+        }
+        console.log(sum);
+        } */
+
+        /// prime number====>>>>>>
+
+        var num = prompt("enter number");
+        var count = 0;
+        for( var i = 2; num > 0; i++){
+        if( num % i == 0){
+            count++
+        }
+        if(count == 0){
+            console.log("prime");
+        }else{
+            console.log("not prime");
+        }
+    }
+    
+    </script>
+</body>
+</html>

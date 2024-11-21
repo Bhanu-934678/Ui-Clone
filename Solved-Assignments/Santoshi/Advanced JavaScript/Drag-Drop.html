@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1300px;
+            height: 320px;
+            border: 2px solid;
+            border-radius: 20px;
+            margin-top: 100px;
+            text-align: center;
+            font-size: larger;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .box > div {
+            margin: 10px;
+        }
+        img{
+            width: 250px;
+            height: 200px;     
+        }
+        .deleteIcon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .count {
+            font-size: small;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+   
+    <img src="https://www.mybakingaddiction.com/wp-content/uploads/2011/10/lr-0953.jpg" alt="" ondragstart="onElementdragstart(event)"  id="pic1">
+    <img src="https://i.pinimg.com/736x/84/cc/8e/84cc8e0c0b5ee70fbaa37ccdc17cf0ca.jpg" alt="" ondragstart="onElementdragstart(event)" id="pic2">
+    <img src="https://i.pinimg.com/originals/15/2c/79/152c796f67911387b8dd73c08021209f.jpg" alt=""  ondragstart="onElementdragstart(event)"  id="pic3">
+    <img src="https://i.pinimg.com/736x/0c/10/25/0c1025579b72764dc37d2037a67638a5.jpg" alt=""  ondragstart="onElementdragstart(event)" id="pic4">
+    <img src="https://www.shutterstock.com/image-vector/children-reading-book-nature-cartoon-600nw-2290492039.jpg" alt=""  ondragstart="onElementdragstart(event)" id="pic5">
+
+    <div class="box" ondrop="onElementDrop(event)" ondragover="onElementDragOver(event)" > 
+        <div id="picscontainer"> 
+            <span id="count"></span>
+        </div>
+    </div>
+   
+    <script>
+        var count = 0;
+        var addedImages = {};
+
+        var onElementdragstart = (event) => {
+            console.log("event got started");
+            imgsrc = event.target.getAttribute("src");
+        }
+
+        var onElementDrop = (event) => {
+            event.preventDefault();
+            if (!addedImages[imgsrc]) {
+                count++;
+                console.log(count);
+                document.getElementById('count').innerText = count;
+                addedImages[imgsrc] = true;
+                var imgdiv = document.createElement("div");
+                imgdiv.setAttribute("class", "imgdiv");
+                var img = document.createElement("img");
+                img.setAttribute("src", imgsrc);
+                imgdiv.appendChild(img);
+                var span = document.createElement("span");
+                span.innerHTML = "&#128465;"; // Trashcan icon
+                span.setAttribute("class", "deleteIcon");
+                span.addEventListener("click", (event) => {
+                    event.target.parentElement.remove();
+                    count--;
+                    document.getElementById('count').innerText = count;
+                    addedImages[imgsrc] = false;
+                });
+                imgdiv.appendChild(span);
+                document.querySelector(".box").appendChild(imgdiv);
+            }
+        }
+
+        var onElementDragOver = (event) => {
+            event.preventDefault();
+            console.log("event drag over");
+        }
+    </script>
+    
+</body>
+</html>
+The addedImages object is used to prevent the same image from being added multiple times to the box.
+Each key in the addedImages object represents a unique image source (imgsrc), and its corresponding value indicates whether that image has been added to the box or not.
+When an image is dropped into the box, the code checks if the image source already exists as a key in the addedImages object. If it does, it means the image has already been added, and the code prevents it from being added again.
+This prevents duplicate images from cluttering the box and ensures that each image is added only once.
+Efficient Management:
+
+By using objects, the code efficiently manages the state of the images.
+Checking for the existence of an image source in the addedImages object is a constant-time operation (O(1)), making the process of preventing duplicates efficient even for a large number of images.
+Additionally, when an image is removed (by clicking on the trashcan icon), its corresponding entry in the addedImages object is updated to indicate that it has been removed. This ensures consistency between the UI and the state maintained by the code.
+
+Using objects simplifies the logic for managing the state of images compared to other data structures.
+Objects provide a convenient way to store key-value pairs, making it easy to check for the existence of a particular image source and update its status.
+This simplicity leads to cleaner and more maintainable code.
+In summary, objects are added to efficiently manage the state of images, prevent duplicate additions, and simplify the logic for handling image addition and removal in the code.

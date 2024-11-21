@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Functions with passing parameters</title>
+</head>
+<body>
+    <script>
+       /* var a , b, c;
+        function readDetails(a , b , c) {
+            a =parseInt( prompt("enter a value"));
+            b =parseInt( prompt("ebter b value"));
+            c =parseInt( prompt("enter c value"));
+            console.log("The sum of values = ", (a + b + c));
+        }
+
+        readDetails( ); */
+
+        // ARROW FUNCTION========>>>>>>>>>>>>>> EXAMPLE -1 
+      /* var readDetails = () => {
+            var a1 , a2 ;
+            a1 = parseInt(prompt("enter a1 value"));
+            a2 = parseInt(prompt("enter a2 value"));
+            console.log("sum =", (a1 + a2));
+        }
+        readDetails();
+        */
+
+        // ARROW FUNCTION======>>>>>>>>>>>>>>>>>>>> EXAMPLE - 2
+
+        /* var getsum = (a , b) => {
+            a = parseInt(prompt("enter a value="));
+            b = parseInt(prompt("enter b value="));
+            var result = a + b ;
+            console.log("sum" , result);
+            readSum(a , b);
+        }
+        console.log(typeof(getsum));
+        getsum();
+        var a , q ;
+        function readSum  (p , q)  {
+            var add = p + q;
+            console.log("add=" , add);
+        } */
+         // note - always invoking of a particular function should be done after or before the function but not inside the function.
+       
+        var displayDetails = (x , y , r) =>{ 
+        x = parseInt(prompt("enter x value-"));
+        y = parseInt(prompt("enter y value-"));
+        r = x * y ;
+        console.log("the result is " , r);
+        getSum();
+        
+        }
+        
+         
+         var getSum = ( x , b , c) => {
+            c = x * b;
+            console.log(typeof(c));
+            console.log(c);
+         }
+         displayDetails();
+        
+    </script>
+</body>
+</html>

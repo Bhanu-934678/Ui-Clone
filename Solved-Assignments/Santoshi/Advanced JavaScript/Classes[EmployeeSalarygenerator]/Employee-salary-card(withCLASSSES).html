@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Card Generator</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        li{
+            list-style: none;
+          
+        }
+        ul{
+            margin: 20px auto;
+            width: 500px;
+            background-color: darkseagreen;
+            padding: 10px;
+          
+        }
+        label{
+            display: inline-block;
+            width: 120px;
+            margin: 10px;
+        }
+        .displayblock{
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="ecard.js"></script>
+</head>
+<body>
+    <h1> Employee Salary Card Generator</h1>
+
+    <ul>
+        <li>
+            <label for="name"> Name:</label>
+            <input type="text" id="ename">
+        </li>
+
+        <li>
+            <label for="age">Age:</label>
+            <input type="number" id="eage">
+        </li>
+
+        <li>
+            <label for="gender"> Gender:</label>
+            <input type="radio" id="egender" name="gender" value="Male" > male
+            <input type="radio" id="egender"  name="gender" value="Female" checked>female
+        </li>
+        <li>
+            <label for="dept"> Department:</label>
+            <select name="" id="edept">
+                <option value="SAP"> SAP</option>
+                <option value=" software developer"> software developer</option>
+                <option value="IT"> IT</option>
+                <option value="Civil engineer"> Civil engineer</option>
+                <option value="manager"> manager</option>
+            </select>
+        </li>
+        <li>
+            <label for="basicsalary">Basic Salary:</label>
+            <input type="text" id="bs">
+        </li>
+        <li>
+            <input type="button"   value =" Generate Salary Card"    onclick="readInfo()" style="background-color:yellow;">
+            <input type="button"  id="resetbutton" value="Reset Values" onclick="reset()"  style="background-color: crimson; color: white;">
+            
+        </li>
+    </ul>
+
+
+    <ul class="displayblock">
+        <li> Employee Name :  <span id="dname"></span></li>
+        <li> Employee Age : <span id="dage"></span></li>
+        <li> Employee Gender : <span id="dgender"></span></li>
+        <li> Employee Department : <span id="ddept"></span></li>
+        <li> Employee Basic salary : <span id="dbasic"></span></li>
+        <li> Employee PF : <span id="dpf"></span></li>
+        <li> Employee HRA : <span id="dhra"></span></li>
+        <li> Total Salary : <span id="dtotal"></span></li>
+        
+
+</body>
+</html>

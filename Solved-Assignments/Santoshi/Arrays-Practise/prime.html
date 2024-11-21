@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+       /* var data = [];
+        var datasize = parseInt(prompt("enter the size"));
+        for( var i = 0; i < datasize; i++){
+            data[i] = parseInt(prompt("enter values-"))
+        }
+ 
+        var num , prime = 0;
+        for( var i = 0; i < datasize; i++){
+         var count = 0;
+         num = data[i];
+         for( var j= 2 ; j < num; j++){
+             if(num % j == 0){
+                 count += 1;
+                 break;
+             }
+         }
+         if (count == 0) {
+             prime = prime + num;
+         }
+     }
+     console.log(prime);*/
+
+     // check wheather prime number is not==========>>>>>>>>>>.
+
+    /*var n = prompt("enter number");
+    var count = 0;
+    for( var i = 2 ; i < n; i++){
+        var rem = n % i;
+        if(rem == 0){
+            count++;
+        }
+        console.log(count);
+    }
+    if(count == 0){
+        console.log("prime");
+    } else{
+        console.log("not prime");
+    } */
+
+    // check prime number -- array ===>>>>>>>>>.
+
+    var data = [];
+    var datasize = prompt("enter size");
+     for(var i = 0; i < datasize; i++){
+         data[i] = prompt("enter values");
+     }
+
+     for(var i = 0; i < datasize; i++){
+        var rem;
+        var count = 0;
+        var prime = 0;
+        var num = data[i];
+        for(var j = 2; j < i; j++){
+            if( num % j == 0){
+               count += 1 ;
+            } 
+        }
+        if(count == 0){
+            prime = prime + num;
+        }
+
+     }
+     console.log(prime);
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+h2{
+    width: auto;
+    height: 50px;
+    text-align: center;
+    color: brown;
+    background-color: lavender;
+    padding: 20px;
+}
+.employeeData {
+    list-style: none;
+    border: 1px solid;
+    margin: 3px;
+    padding: 4px;
+    width: 200px;
+}
+
+
+image{
+    width: 100px;
+    height: 100px;
+}

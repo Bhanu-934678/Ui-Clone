@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <div class="Container">
+                <p>NAME: </p>
+                <span id="Sname"></span>
+            </div>
+            <script>
+           /*   var  sample = () => {
+                   return "My name is Sai Dheeraj i'm 25 years old";   
+                };
+                console.log(sample()); */
+
+                var NameandAge = (name, age) => ({name : name, age: age});
+                    
+               
+                console.log(NameandAge("Dheeraj", 25));
+                document.querySelector("#Sname").innerHTML = NameandAge.name;
+                console.log(NameandAge("Niharika", 22));
+                console.log(NameandAge("Santhoshi", 22));
+                console.log(NameandAge("Nikitha", 22));
+                console.log(NameandAge("Renuka",22));
+            </script>
+        </body>
+</html>

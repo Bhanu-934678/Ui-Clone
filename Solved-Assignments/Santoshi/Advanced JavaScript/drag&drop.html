@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1300px;
+            height: 320px;
+            border: 2px solid;
+            border-radius: 20px;
+            margin-top: 100px;
+            text-align: center;
+            font-size: larger;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .box > div {
+            margin: 10px;
+        }
+        img{
+            width: 250px;
+            height: 200px;     
+        }
+        .deleteIcon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .count {
+            font-size: small;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+   
+    <img src="https://www.mybakingaddiction.com/wp-content/uploads/2011/10/lr-0953.jpg" alt="" ondragstart="onElementdragstart(event)"  id="pic1">
+    <img src="https://i.pinimg.com/736x/84/cc/8e/84cc8e0c0b5ee70fbaa37ccdc17cf0ca.jpg" alt="" ondragstart="onElementdragstart(event)" id="pic2">
+    <img src="https://i.pinimg.com/originals/15/2c/79/152c796f67911387b8dd73c08021209f.jpg" alt=""  ondragstart="onElementdragstart(event)"  id="pic3">
+    <img src="https://i.pinimg.com/736x/0c/10/25/0c1025579b72764dc37d2037a67638a5.jpg" alt=""  ondragstart="onElementdragstart(event)" id="pic4">
+    <img src="https://www.shutterstock.com/image-vector/children-reading-book-nature-cartoon-600nw-2290492039.jpg" alt=""  ondragstart="onElementdragstart(event)" id="pic5">
+
+    <div class="box"    ondrop="onElementDrop(event)"  ondragover="onElementDragOver(event)" > 
+        <div id="picscontainer"> 
+            <span id="count"></span>
+        </div>
+
+    </div>
+   
+    <script>
+        var count = 0;
+        var onElementdragstart = (event) => {
+            console.log("event got started");
+            imgsrc = event.target.getAttribute("src");           // ondrop="onElementDrop(event)"    ondragover="onElementDragOver(event)"       ondragover="onElementDragOver(event)"
+        }
+
+        var onElementDrop = (event) => {
+            event.preventDefault();
+            count++;
+            console.log(count);
+            if(count == 0){
+                var div = document.createElement("div");
+                div.setAttribute("class" , "imgdiv");
+                var img = document.createElement("img");
+                img.setAttribute("src" , imgdiv);
+                div.appendChild(img);
+                var span = document.createElement("span");
+                span.innerText = "https://www.shutterstock.com/image-vector/trashcan-icon-dustbin-symbol-flat-260nw-260216858.jpg";
+                div.append(span) ;
+                document.querySelector("#box").append(div);
+                span.addEventListener("click" , (event) => {
+                    event.target.parentElement.remove();
+                    document.querySelector("#count").style.display = "none"
+                })
+                 
+            }
+            else{
+                var existingimgCheck = document.querySelector(".imgdiv");
+                    if(!existingimgCheck ){
+                        var countingspan = document.createElement("span");
+                        countingspan.style.display = "inline";
+                        countingspan.innerText = count
+                    }
+            }
+
+            
+        }
+
+        var onElementDragOver = (event) => {
+            event.preventDefault();
+            console.log("event drag over");
+        }
+
+    </script>
+    
+   </body>
+   </html>

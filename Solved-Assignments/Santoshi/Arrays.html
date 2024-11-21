@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //  var arr = [21, 34, 45, 89, 43, 98];
+        //console.log(arr [4]);
+
+       // var heros = ["ram", "siva", "bramha", "srinivas"];
+        // console.log(heros);
+
+        // comparision of arrays========>>>...>>>>>>>....>>>>
+
+       /* var p = [ 12, 24, 36, 48, 60];
+        var q = [12, 24, 36, 48, 60];
+        var  result = ["both arrays are equal."]
+        if ( p.length != q.length){
+            result = " both arrays are not equal."
+        }else {
+            for (var a = 0; a < p.length; a++){
+                if( p[a] != q[a]){
+                    result = "both arrays are not equal."
+                    break;
+                }
+                
+            }
+        }
+        console.log( result);*/
+
+        // COMPARISION OF ARRAYS ===============..........>>>>>>>>>>>>>>
+
+       /* var p = [ 12, 24, 36, 48, 60];
+        var q = [12 , 24 ,36 , 48 ,60];
+        var result = [" not equal arrays"];
+        if ( p.length == q.length){
+            for( var i = 0; i < p.length; i++){
+                if(p[i] == q[i]){
+                    result = "equal arrays";
+                }
+            }
+        }
+        else{
+            result = "not equal arrays."
+        }
+        console.log(result); */
+
+
+        //COMPARISION OF ARRAYS ===============..........>>>>>>>>>>>>>>
+
+        /*var x = [2, 4, 6, 8, 0];
+        var y = [2, 4, 6, 8, 0];
+        var comp = ['not equal arrays'];
+        if (x.lenght = y.length){
+            for(i = 0; i < x.length ; i++){
+                if ( x[i] == y[i]){
+                        comp = "equal arrays";
+                }
+            }
+        }
+        else {
+            comp = "not equal arrays";
+        }
+        console.log(comp);*/
+
+        // largest value in the array================>>>>>>>>>>>>>>>>>>>>>.........>>>>>>
+
+        var r = [10, 20, 30, 40, 50, 150, 70, 80, 90, 100];
+        var large = r[0];
+        
+        for( var a = 1; a < r.length; a++){
+            if( large < r[a]){
+                large = r[a];
+            }
+        }
+        console.log(large);
+
+        // second largest value in the array===================>>>>>>>>>>>>>>>>>
+
+        var t = [10, 80, 60];
+        var largest = t[0];
+        var second = 0; 
+         for( var i = 1; i < t.length; i++){
+            if( largest < t[i]){
+                largest = t[i];
+            }
+            else if( t[i] > second){
+                second = t[i];
+            }
+         }
+         console.log(second);
+    </script>
+</body>
+</html>

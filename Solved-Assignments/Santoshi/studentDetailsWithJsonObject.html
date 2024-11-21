@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var stdDetails = {
+            name : "siri",
+            age : 22,
+            gender : "female",
+            marks : [22, 55, 77, 98, 87],
+            total : 0,
+            avg : 0,
+            grade : ''
+        }
+        for(var i = 0 ; i < stdDetails.marks.length ; i++){
+            stdDetails.total += stdDetails.marks[i]
+        }
+        stdDetails.avg = stdDetails.total / 5;
+        if(stdDetails > 40 ){
+            stdDetails.grade = 'passed';
+        }else{
+            stdDetails.grade = 'failed';
+        }
+        console.log(stdDetails.name);
+        console.log(stdDetails.age);
+        console.log(stdDetails.gender);
+        console.log(stdDetails.total);
+        console.log(stdDetails.grade);
+       // setTimeout(() => {
+         //   console.log("sorry siri you failed");
+        //} , 6000)
+        setInterval(( ) => {
+            console.log("sorry siri you failed");
+        } , 6000)
+    </script>
+</body>
+</html>

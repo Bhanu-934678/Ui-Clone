@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK</title>
+    <style>
+        body{
+            background-image: linear-gradient(rgb(91, 201, 18), rgb(220, 28, 95));
+            background-size: 100%;
+        }
+        .circle{
+            border: 1px solid;
+            width: 300px;
+            height: 300px;
+            margin: 180px auto;
+            border-radius: 50%;
+            position: relative;
+            background-image: linear-gradient(blue, rgb(230, 56, 137));
+            box-shadow: 12px, 12px, 10px, 20px, rgb(145, 24, 24);   
+        }
+        #no12{
+            position: absolute;
+            left: 47%;
+            margin: 20px auto;
+            font-size: 25px;
+            top: -5%;
+            color: aliceblue;
+        }
+        /* Add styles for other hour markers here */
+
+        .text{
+            position: absolute;
+            top: 25%;
+            left: 44%;
+            font-weight: bold;
+            color: beige;
+        }
+        #dot{
+            border: 1px solid;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
+            margin: 150px auto;
+        }
+        .minsHand{
+            width: 130px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: 2px solid;
+            transform-origin: center bottom; /* Rotate from the bottom center */
+            color: lemonchiffon;
+        }
+        .secsHand{
+            border: 1px solid;
+            width: 110px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: center bottom; /* Rotate from the bottom center */
+            color: snow;
+        }
+        .hrsHand{
+            border: 3px solid;
+            width: 60px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: center bottom; /* Rotate from the bottom center */
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+   <div class="circle">
+        <!-- Hour markers and other elements -->
+        <div id="dot"></div>
+
+        <div class="minsHand"></div>
+        <div class="secsHand"></div>
+        <div class="hrsHand"></div>
+        <div class="text">TITAN</div>
+   </div> 
+   <script>
+        var mins = document.querySelector('.minsHand');
+        var secs = document.querySelector('.secsHand');
+        var hrs = document.querySelector('.hrsHand'); 
+
+        setInterval(() => {
+            var date = new Date();
+
+            var secdeg = date.getSeconds() / 60 * 360;
+            var mindeg = (date.getMinutes() * 6) + (date.getSeconds() / 10); // Adding seconds fraction to minute hand
+            var hourdeg = (date.getHours() % 12) * 30 + (date.getMinutes() / 2); // Adding minutes fraction to hour hand
+            secs.style.transform = `rotate(${secdeg}deg)`;
+            mins.style.transform = `rotate(${mindeg}deg)`;
+            hrs.style.transform = `rotate(${hourdeg}deg)`;
+        }, 1000)
+   </script>
+</body>
+</html>

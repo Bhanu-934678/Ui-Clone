@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Pallindrone of a number using Arrays</title>
+    </head>
+        <body>
+            <script>
+                var value = prompt(["enter a number"]);
+                value[a] = parseInt(value[a]);
+                var temp = value[a];
+                var reverseNum = 0;
+                while (a != 0) {
+                    var rem = value[a] % 10;
+                    reverseNum = reverseNum * 10 + rem;
+                    value[a] = value[a] / 10;   
+                }
+                if (temp == reverseNum) {
+                    console.log("its pallindrone");
+                } else {
+                    console.log("its not pallindrone");
+                }
+                console.log(reverseNum);
+            </script>  
+        </body>
+</html>

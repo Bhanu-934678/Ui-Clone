@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container {
+                width: 500px;
+                height: 500px;
+                border: 1px solid;
+                border-radius: 10px;
+                margin: 20px auto;
+            }
+            .image {
+                width: 200px;
+                height: 200px;
+                margin: 20px auto;
+                padding: 30px;
+            }
+            .subdiv {
+                width: 150px;
+                margin: 17px 249px;
+                border-radius: 10px;
+                background-color: yellow;
+                border: 1px solid;
+                height: 200px;
+                position: relative;
+                top: -274px;
+            }
+            .text {
+                text-align: center;
+                margin: 20px;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="displayBlock">
+
+        </div>
+        <script>
+            var div1 = document.createElement("div");
+            div1.setAttribute("class","container");
+            var imgtag = document.createElement("img");
+            imgtag.setAttribute("src","https://th.bing.com/th/id/OIP.RfSBhoblsQ9kQ0tEapC1_gHaK8?rs=1&pid=ImgDetMain");
+            imgtag.setAttribute("class","image");
+            div1.append(imgtag);
+            var div2 = document.createElement("div");
+            div2.setAttribute("class","subdiv");
+            div1.append(div2);
+            var div3 = document.createElement("div");
+            div3.innerText = "CINDRELLA";
+            div3.setAttribute("class","text")
+            div2.append(div3);
+            document.querySelector(".displayBlock").append(div1);
+        </script>
+    </body>
+</html>

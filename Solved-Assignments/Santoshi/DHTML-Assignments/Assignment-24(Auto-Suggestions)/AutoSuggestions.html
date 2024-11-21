@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(2, 13, 34);
+            color: rgb(15, 13, 13);
+            font-size: large;
+        }
+        .searchbox{
+            width: 600px;
+            background-color: white;
+            margin: 200px auto;
+            border-radius: 5px;
+        }
+        .row{
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        input{
+            flex: 1;
+            height: 50px;
+            background: transparent;
+            border: 0;
+            font-size: 18px;
+            color: purple;
+            outline: 0;
+        }
+        button{
+            height: 40px;
+        }
+        ::placeholder{
+            color: blue;
+        }
+        .resultbox {
+            color: purple;
+            list-style: none;
+            border-radius: 3px;
+          /*  padding: 15px 10px; */
+            cursor: pointer;
+        }
+        .resultbox {
+            border-top: 1px transparent;
+          /*  padding: 15px 10px; */
+            
+        }
+        .resultbox :hover {
+            background-color: lightskyblue;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="searchbox">
+        <div class="row">
+            <input type="text " id="inputbox"  placeholder="search for kids books" autocomplete="off" onkeyup="display(event)">
+            <button> search</button>
+        </div>
+        <div class="resultbox"></div>
+    </div>
+    <script src="suggestions.js"></script>
+</body>
+</html>

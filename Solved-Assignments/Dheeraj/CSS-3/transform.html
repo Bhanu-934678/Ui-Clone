@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container{
+                width: 400px;
+                border-radius: 30%;
+                height: 150px;
+                border: 2px solid;
+                margin: 150px auto;
+                background-image: linear-gradient(rgb(238, 151, 151) 50%, navy 75%);
+                
+                transition: width 10s, height 10s, transform 1s, border-radius 10s;
+            }
+            .text{
+                text-align: center;
+                margin: 50px auto;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .container:hover{
+                width: 600px;
+                height: 250px;
+                transform: rotate(120deg);
+                border-radius: 80%;
+            }
+            body{
+                background-image: radial-gradient(violet, red);
+            }
+        </style>
+    </head>
+    <body>
+       <div class="container">
+        <div class="text">Hello All</div>
+       </div> 
+    </body>
+</html>

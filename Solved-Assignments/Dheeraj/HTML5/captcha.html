@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAPTCHA Generation</title>
+<style>
+    #captchaContainer {
+        border: 1px solid #000;
+        width: 120px;
+        height: 100px;
+        margin: 20px auto;
+    }
+    body {
+        background-color: rgb(193, 243, 236);
+    }
+    #captchaContainer img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body onload="generateCaptcha()">
+    <div id="captchaContainer">
+        
+    </div>
+    <img id="refreshButton" src="../images/refresh.png" onclick="generateCaptcha()" alt="Refresh" 
+            style="width: 29px; height: 29px; cursor: pointer; 
+            position: absolute; left: 61%; top: 11%;">
+
+    <script>
+        var generateCaptcha = () => {
+            var canvas = document.createElement("canvas");
+            canvas.width = 200;
+            canvas.height = 80;
+            var ctx = canvas.getContext("2d");
+
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            
+            for (var i = 0; i < 50; i++) {
+                var x = Math.random() * canvas.width;
+                var y = Math.random() * canvas.height;
+                var width = Math.random() * 40;
+                var height = Math.random() * 40;
+                ctx.fillStyle = randomColor();
+                ctx.fillRect(x, y, width, height);
+            }
+
+            
+            var captchaValue = generateRandomString(6);
+            ctx.font = "italic bold 40px Arial";
+            ctx.fillStyle = "black";
+            for (var i = 0; i < captchaValue.length; i++) {
+                var x = i * 30 + Math.random() * 20;
+                var y = 50 + Math.random() * 20;
+                var rotation = Math.random() * 0.4 - 0.2;
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rotation);
+                ctx.fillText(captchaValue[i], 0, 0);
+                ctx.restore();
+            }
+
+            
+            var imageDataURL = canvas.toDataURL();
+            var captchaImage = new Image();
+            captchaImage.src = imageDataURL;
+            var captchaContainer = document.getElementById("captchaContainer");
+            captchaContainer.innerHTML = ''; 
+            captchaContainer.appendChild(captchaImage);
+        }
+
+        function generateRandomString(length) {
+            var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var randomString = "";
+            for (var i = 0; i < length; i++) {
+                var randomIndex = Math.floor(Math.random() * charset.length);
+                randomString += charset.charAt(randomIndex);
+            }
+            return randomString;
+        }
+
+        function randomColor() {
+            return '#' + Math.random().toString(16).slice(2, 8);
+        }
+    </script>
+</body>
+</html>
